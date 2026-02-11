@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learning App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📚 Language Learning App</h1>
+<div style="text-align:center; margin-bottom:15px;">
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+</div>
+
+    <!-- Search + Filter -->
+    <div class="filter-section">
+        <input type="text" id="searchInput" placeholder="Search word..." onkeyup="filterWords()">
+
+        <select id="filterCategory" onchange="filterWords()">
+            <option value="All">All Categories</option>
+            <option value="Vocabulary">Vocabulary</option>
+            <option value="Grammar">Grammar</option>
+            <option value="Phrases">Phrases</option>
+            <option value="Interview">Interview</option>
+            <option value="Technical">Technical</option>
+        </select>
+    </div>
+
+    <!-- Add Word Section -->
+    <div class="card">
+        <h2>Add New Word</h2>
+        <input type="text" id="word" placeholder="Word">
+        <input type="text" id="meaning" placeholder="Meaning">
+        <select id="category">
+            <option value="Vocabulary">Vocabulary</option>
+            <option value="Grammar">Grammar</option>
+            <option value="Phrases">Phrases</option>
+            <option value="Interview">Interview</option>
+            <option value="Technical">Technical</option>
+        </select>
+        <button onclick="addWord()">Add Word</button>
+    </div>
+
+    <!-- Word List -->
+    <div class="card">
+        <h2>Word List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Meaning</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="wordList"></tbody>
+        </table>
+    </div>
+
+    <!-- Quiz Section -->
+    <div class="card">
+        <h2>Quiz Section</h2>
+        <p id="question">Click Start Quiz</p>
+        <div id="options"></div>
+        <button onclick="startQuiz()">Start Quiz</button>
+
+        <p>Score: <span id="score">0</span></p>
+
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+
+        <!-- Result Box -->
+        <div id="resultBox" style="display:none; margin-top:15px;">
+            <h3 id="resultText"></h3>
+            <button onclick="startQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
